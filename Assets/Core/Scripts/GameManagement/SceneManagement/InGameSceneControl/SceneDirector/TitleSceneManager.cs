@@ -68,5 +68,5 @@ public sealed class TitleSceneManager : Singleton<TitleSceneManager, SceneScope>
         Debug.Log("GameReset");
     }
 
-    private static T[] FindAll<T>() where T : Object => Object.FindObjectsByType<T>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+    private static T[] FindAll<T>() where T : Object => Object.FindObjectsByType<T>(FindObjectsInactive.Include);
 }

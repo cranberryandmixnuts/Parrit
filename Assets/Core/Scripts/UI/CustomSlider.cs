@@ -99,7 +99,9 @@ public sealed class CustomSlider : MonoBehaviour, IPointerDownHandler, IDragHand
     {
         ValidateRanges();
         value = ClampValue(value);
-        UpdateVisuals();
+
+        if (fillImage != null && handleRect != null)
+            UpdateVisuals();
     }
 
     public void OnPointerDown(PointerEventData eventData)

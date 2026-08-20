@@ -63,8 +63,8 @@ public sealed class PlayerController : Singleton<PlayerController, SceneScope>
     [TabGroup("Player Controller", "Setup"), BoxGroup("Player Controller/Setup/Combat Detect"), SerializeField]
     private CircleCollider2D dashDetectCollider;
 
-    [HideInInspector] public List<ParryCandidate> parryCandidates = new();
-    [HideInInspector] public List<DashCandidate> dashCandidates = new();
+    [NonSerialized, HideInInspector] public List<ParryCandidate> parryCandidates = new();
+    [NonSerialized, HideInInspector] public List<DashCandidate> dashCandidates = new();
 
     #region HideInInspector public fields
     [HideInInspector] public bool isGround;

@@ -53,10 +53,10 @@ public class AudioManager : Singleton<AudioManager, GlobalScope>
 
     private readonly struct LoopSlotKey : IEquatable<LoopSlotKey>
     {
-        public int OwnerId { get; }
+        public EntityId OwnerId { get; }
         public string Slot { get; }
 
-        public LoopSlotKey(int ownerId, string slot)
+        public LoopSlotKey(EntityId ownerId, string slot)
         {
             OwnerId = ownerId;
             Slot = slot;
@@ -276,7 +276,7 @@ public class AudioManager : Singleton<AudioManager, GlobalScope>
     {
         EnsureRuntimeInitialized();
 
-        int ownerId = GetOwnerId(parent);
+        EntityId ownerId = GetOwnerId(parent);
 
         for (int i = 0; i < sfxVoices.Count; i++)
         {
@@ -808,5 +808,5 @@ public class AudioManager : Singleton<AudioManager, GlobalScope>
         return fallback;
     }
 
-    private int GetOwnerId(GameObject owner) => owner != null ? owner.GetInstanceID() : 0;
+    private EntityId GetOwnerId(GameObject owner) => owner != null ? owner.GetEntityId() : EntityId.None;
 }
